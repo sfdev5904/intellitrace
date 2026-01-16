@@ -364,12 +364,153 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                margin-bottom: 25px;
+                padding: 15px 10px;
+            }
+
             .header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
+                letter-spacing: 1px;
+            }
+
+            .tagline {
+                font-size: 1.1em;
+            }
+
+            .logo svg {
+                width: 60px;
+                height: 60px;
+            }
+
+            .search-section {
+                padding: 20px 15px;
+            }
+
+            .search-bar {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            #username {
+                width: 100%;
+                padding: 14px 16px;
+                font-size: 1em;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 1em;
+            }
+
+            .options {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .option-group {
+                padding: 12px;
+            }
+
+            .advanced-options {
+                padding: 15px;
+            }
+
+            .operator-help {
+                padding: 12px;
+                font-size: 0.9em;
+            }
+
+            .operator-help code {
+                font-size: 0.85em;
+                padding: 2px 4px;
+            }
+
+            .results {
+                padding: 20px 15px;
+            }
+
+            .results h2 {
+                font-size: 1.5em;
             }
 
             .search-grid {
                 grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .search-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 12px;
+            }
+
+            .search-card-info {
+                width: 100%;
+            }
+
+            .search-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .stat-card {
+                padding: 15px;
+            }
+
+            .stat-card h4 {
+                font-size: 1.8em;
+            }
+
+            .category h3 {
+                font-size: 1.2em;
+            }
+
+            .footer {
+                padding: 25px 15px;
+                margin-top: 30px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .tagline {
+                font-size: 1em;
+            }
+
+            .search-section {
+                padding: 15px 12px;
+            }
+
+            .results {
+                padding: 15px 12px;
+            }
+
+            .operator-help p {
+                font-size: 0.85em;
+                line-height: 1.5;
+            }
+
+            .search-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1em;
             }
         }
     </style>
@@ -500,7 +641,7 @@
         </div>
 
         <div class="footer">
-            made by: <span>Mr. OSINT Jr.</span>
+            made by: <span>Sebastian F.</span>
         </div>
     </div>
 
