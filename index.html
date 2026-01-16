@@ -12,8 +12,8 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Courier New', monospace;
+            background: #000000;
             min-height: 100vh;
             padding: 20px;
         }
@@ -25,9 +25,10 @@
 
         .header {
             text-align: center;
-            color: white;
+            color: #00ff00;
             margin-bottom: 40px;
             padding: 20px;
+            text-shadow: 0 0 10px #00ff00;
         }
 
         .logo {
@@ -63,10 +64,11 @@
         }
 
         .search-section {
-            background: white;
-            border-radius: 15px;
+            background: #0a0a0a;
+            border: 1px solid #00ff00;
+            border-radius: 0;
             padding: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 0 20px rgba(0,255,0,0.3);
             margin-bottom: 30px;
         }
 
@@ -80,43 +82,50 @@
             flex: 1;
             padding: 15px 20px;
             font-size: 1.1em;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            transition: border-color 0.3s;
+            background: #000000;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            border-radius: 0;
+            transition: all 0.3s;
+            font-family: 'Courier New', monospace;
         }
 
         #username:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #00ff00;
+            box-shadow: 0 0 10px rgba(0,255,0,0.3);
         }
 
         .btn {
             padding: 15px 30px;
             font-size: 1.1em;
-            border: none;
-            border-radius: 10px;
+            border: 1px solid #00ff00;
+            border-radius: 0;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 600;
+            font-family: 'Courier New', monospace;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: transparent;
+            color: #00ff00;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            background: #00ff00;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
         }
 
         .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
+            background: transparent;
+            color: #00ff00;
         }
 
         .btn-secondary:hover {
-            background: #e0e0e0;
+            background: #00ff00;
+            color: #000000;
         }
 
         .options {
@@ -127,14 +136,15 @@
         }
 
         .option-group {
-            background: #f8f9fa;
+            background: #000000;
+            border: 1px solid #00ff00;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 0;
         }
 
         .option-group h3 {
             font-size: 0.9em;
-            color: #666;
+            color: #00ff00;
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -161,13 +171,15 @@
         .checkbox-item label {
             cursor: pointer;
             user-select: none;
+            color: #00ff00;
         }
 
         .results {
-            background: white;
-            border-radius: 15px;
+            background: #0a0a0a;
+            border: 1px solid #00ff00;
+            border-radius: 0;
             padding: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 0 20px rgba(0,255,0,0.3);
             display: none;
         }
 
@@ -176,9 +188,10 @@
         }
 
         .results h2 {
-            color: #333;
+            color: #00ff00;
             margin-bottom: 20px;
             font-size: 1.8em;
+            text-shadow: 0 0 10px #00ff00;
         }
 
         .category {
@@ -186,11 +199,11 @@
         }
 
         .category h3 {
-            color: #667eea;
+            color: #00ff00;
             margin-bottom: 15px;
             font-size: 1.4em;
             padding-bottom: 10px;
-            border-bottom: 2px solid #e0e0e0;
+            border-bottom: 1px solid #00ff00;
         }
 
         .search-grid {
@@ -200,20 +213,20 @@
         }
 
         .search-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #000000;
+            border: 1px solid #00ff00;
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
             transition: all 0.3s;
-            border: 2px solid transparent;
         }
 
         .search-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            border-color: #667eea;
+            box-shadow: 0 0 15px rgba(0,255,0,0.5);
+            background: rgba(0,255,0,0.05);
         }
 
         .search-card-info {
@@ -225,8 +238,9 @@
         .search-icon {
             width: 40px;
             height: 40px;
-            background: white;
-            border-radius: 8px;
+            background: transparent;
+            border: 1px solid #00ff00;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -234,27 +248,29 @@
         }
 
         .search-card-text h4 {
-            color: #333;
+            color: #00ff00;
             margin-bottom: 3px;
         }
 
         .search-card-text p {
-            color: #666;
+            color: rgba(0,255,0,0.7);
             font-size: 0.85em;
         }
 
         .search-link {
             padding: 8px 15px;
-            background: #667eea;
-            color: white;
+            background: transparent;
+            border: 1px solid #00ff00;
+            color: #00ff00;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 0;
             font-size: 0.9em;
             transition: all 0.3s;
         }
 
         .search-link:hover {
-            background: #764ba2;
+            background: #00ff00;
+            color: #000000;
         }
 
         .stats {
@@ -265,16 +281,19 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #000000;
+            border: 1px solid #00ff00;
+            color: #00ff00;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 0;
             text-align: center;
+            box-shadow: 0 0 15px rgba(0,255,0,0.3);
         }
 
         .stat-card h4 {
             font-size: 2em;
             margin-bottom: 5px;
+            text-shadow: 0 0 10px #00ff00;
         }
 
         .stat-card p {
@@ -282,29 +301,39 @@
         }
 
         .advanced-options {
-            background: #f8f9fa;
+            background: #000000;
+            border: 1px solid #00ff00;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 0;
             margin-top: 20px;
         }
 
         .advanced-options h3 {
             margin-bottom: 15px;
-            color: #333;
+            color: #00ff00;
         }
 
         .operator-help {
-            background: white;
+            background: #0a0a0a;
+            border: 1px solid rgba(0,255,0,0.3);
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 0;
             margin-top: 10px;
+            color: #00ff00;
         }
 
         .operator-help code {
-            background: #f0f0f0;
+            background: #000000;
+            border: 1px solid #00ff00;
             padding: 2px 6px;
-            border-radius: 3px;
+            border-radius: 0;
             font-family: 'Courier New', monospace;
+            color: #00ff00;
+        }
+
+        .operator-help p {
+            color: #00ff00;
+            margin-bottom: 8px;
         }
 
         @media (max-width: 768px) {
@@ -345,9 +374,9 @@
                     <line x1="75" y1="30" x2="42" y2="42" stroke="#4FFFB0" stroke-width="1" opacity="0.5"/>
                 </svg>
             </div>
-            <h1>IntelliTrace</h1>
-            <p class="tagline">Advanced OSINT & Digital Footprint Analysis</p>
-            <p class="subtitle">Search by username • name • email • phone • domain • any identifier</p>
+            <h1>intellitrace</h1>
+            <p class="tagline">Google Dorking Simplified</p>
+            <p class="subtitle">Advanced OSINT & Digital Footprint Analysis</p>
         </div>
 
         <div class="search-section">
@@ -359,7 +388,7 @@
 
             <div class="options">
                 <div class="option-group">
-                    <h3>🌐 Social Media</h3>
+                    <h3>Social Media</h3>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
                             <input type="checkbox" id="social" checked>
@@ -377,7 +406,7 @@
                 </div>
 
                 <div class="option-group">
-                    <h3>🔎 Search Engines</h3>
+                    <h3>Search Engines</h3>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
                             <input type="checkbox" id="engines" checked>
@@ -395,7 +424,7 @@
                 </div>
 
                 <div class="option-group">
-                    <h3>💻 Developer & Tech</h3>
+                    <h3>Developer & Tech</h3>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
                             <input type="checkbox" id="coding" checked>
@@ -409,7 +438,7 @@
                 </div>
 
                 <div class="option-group">
-                    <h3>📸 Visual & Creative</h3>
+                    <h3>Visual & Creative</h3>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
                             <input type="checkbox" id="visual" checked>
@@ -424,7 +453,7 @@
             </div>
 
             <div class="advanced-options">
-                <h3>🎯 Advanced Google Dorking Operators</h3>
+                <h3>Advanced Google Dorking Operators</h3>
                 <div class="operator-help">
                     <p><strong>Search Filters:</strong></p>
                     <p><code>allintext:</code> - All keywords in page text | <code>intext:</code> - Keywords in text</p>
@@ -647,16 +676,16 @@
 
         function getCategoryTitle(category) {
             const titles = {
-                social: '🌐 Social Media Platforms',
-                professional: '💼 Professional Networks',
-                media: '📺 Media & Content Platforms',
-                engines: '🔍 Search Engines (Google Dorking)',
-                specialized: '🔬 Specialized Search Engines',
-                dorking: '🎯 Advanced Google Dorking',
-                coding: '💻 Developer Platforms',
-                forums: '💬 Forums & Communities',
-                visual: '📸 Visual & Creative Platforms',
-                gaming: '🎮 Gaming Platforms'
+                social: 'Social Media Platforms',
+                professional: 'Professional Networks',
+                media: 'Media & Content Platforms',
+                engines: 'Search Engines (Google Dorking)',
+                specialized: 'Specialized Search Engines',
+                dorking: 'Advanced Google Dorking',
+                coding: 'Developer Platforms',
+                forums: 'Forums & Communities',
+                visual: 'Visual & Creative Platforms',
+                gaming: 'Gaming Platforms'
             };
             return titles[category] || category;
         }
