@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IntelliTrace</title>
+    <title>IntelliTrace - Advanced OSINT & Digital Footprint Analysis</title>
     <style>
         * {
             margin: 0;
@@ -127,6 +127,20 @@
         .btn-secondary:hover {
             background: linear-gradient(145deg, #2a2a2a 0%, #3a3a3a 100%);
             border-color: #00D9FF;
+        }
+
+        .btn-pod {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: #00D9FF;
+            border: 2px solid #00D9FF;
+            box-shadow: 0 4px 15px rgba(0, 217, 255, 0.2);
+        }
+
+        .btn-pod:hover {
+            background: linear-gradient(135deg, #00D9FF 0%, #0099CC 100%);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 217, 255, 0.5);
         }
 
         .options {
@@ -349,6 +363,132 @@
             margin-bottom: 8px;
         }
 
+        .pod-report {
+            background: linear-gradient(145deg, #0d0d0d 0%, #1a1a1a 100%);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.15);
+            display: none;
+        }
+
+        .pod-report.active {
+            display: block;
+        }
+
+        .pod-report h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-shadow: 0 0 10px #00D9FF;
+        }
+
+        .pod-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .pod-step {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(145deg, #000000 0%, #0d0d0d 100%);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .pod-step:hover {
+            border-color: rgba(0, 217, 255, 0.6);
+            box-shadow: 0 4px 20px rgba(0, 217, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .pod-step::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            background: #00D9FF;
+            border: 3px solid #000000;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+            z-index: 2;
+        }
+
+        .pod-step::after {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 36px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background: linear-gradient(180deg, #00D9FF 0%, rgba(0, 217, 255, 0.3) 100%);
+        }
+
+        .pod-step:last-child::after {
+            display: none;
+        }
+
+        .pod-step-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .pod-step-number {
+            background: linear-gradient(135deg, #00D9FF 0%, #0099CC 100%);
+            color: #ffffff;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        .pod-step-title {
+            color: #00D9FF;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .pod-step-content {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .pod-step-data {
+            background: linear-gradient(145deg, #0d0d0d 0%, #1a1a1a 100%);
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border-left: 3px solid #00D9FF;
+        }
+
+        .pod-step-data strong {
+            color: #00D9FF;
+        }
+
+        .pod-connections {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .pod-connection-badge {
+            background: rgba(0, 217, 255, 0.1);
+            color: #00D9FF;
+            padding: 5px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            font-size: 0.85em;
+        }
+
         .footer {
             text-align: center;
             color: rgba(255, 255, 255, 0.6);
@@ -403,13 +543,13 @@
             </div>
             <h1>intellitrace</h1>
             <p class="tagline">Google Dorking Simplified</p>
-            <p class="subtitle">Advanced OSINT & Digital Footprint Analysis</p>
         </div>
 
         <div class="search-section">
             <div class="search-bar">
                 <input type="text" id="username" placeholder="Enter username, name, email, phone, domain, or any identifier..." autofocus>
                 <button class="btn btn-primary" onclick="generateSearches()">Trace</button>
+                <button class="btn btn-pod" onclick="togglePOD()">POD</button>
                 <button class="btn btn-secondary" onclick="clearResults()">Clear</button>
             </div>
 
@@ -498,6 +638,11 @@
         <div class="results" id="results">
             <div class="stats" id="stats"></div>
             <div id="resultsContent"></div>
+        </div>
+
+        <div class="pod-report" id="podReport">
+            <h2>🔍 Path of Discovery (POD)</h2>
+            <div id="podTimeline" class="pod-timeline"></div>
         </div>
 
         <div class="footer">
@@ -724,6 +869,121 @@
         function clearResults() {
             document.getElementById('username').value = '';
             document.getElementById('results').classList.remove('active');
+            document.getElementById('podReport').classList.remove('active');
+        }
+
+        // POD (Path of Discovery) tracking
+        let discoveryPath = [];
+
+        function addDiscoveryStep(stepData) {
+            discoveryPath.push({
+                timestamp: new Date().toLocaleString(),
+                ...stepData
+            });
+        }
+
+        function togglePOD() {
+            const podReport = document.getElementById('podReport');
+
+            if (podReport.classList.contains('active')) {
+                podReport.classList.remove('active');
+            } else {
+                generatePOD();
+                podReport.classList.add('active');
+                podReport.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function generatePOD() {
+            const podTimeline = document.getElementById('podTimeline');
+
+            if (discoveryPath.length === 0) {
+                podTimeline.innerHTML = `
+                    <div style="text-align: center; color: rgba(255, 255, 255, 0.6); padding: 40px;">
+                        <p style="font-size: 1.2em; margin-bottom: 10px;">No discovery path yet</p>
+                        <p>Start tracing to build your Path of Discovery</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            discoveryPath.forEach((step, index) => {
+                html += `
+                    <div class="pod-step">
+                        <div class="pod-step-header">
+                            <span class="pod-step-number">Step ${index + 1}</span>
+                            <span class="pod-step-title">${step.title}</span>
+                        </div>
+                        <div class="pod-step-content">
+                            ${step.description}
+                        </div>
+                        ${step.data ? `
+                            <div class="pod-step-data">
+                                <strong>Data Point:</strong> ${step.data}
+                            </div>
+                        ` : ''}
+                        ${step.connections && step.connections.length > 0 ? `
+                            <div class="pod-connections">
+                                ${step.connections.map(conn => `<span class="pod-connection-badge">${conn}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                        <div style="color: rgba(255, 255, 255, 0.4); font-size: 0.85em; margin-top: 10px;">
+                            ${step.timestamp}
+                        </div>
+                    </div>
+                `;
+            });
+
+            podTimeline.innerHTML = html;
+        }
+
+        // Enhanced generateSearches to track POD
+        const originalGenerateSearches = generateSearches;
+        function generateSearches() {
+            const username = document.getElementById('username').value.trim();
+
+            if (username) {
+                // Track the initial search
+                const checkedCategories = [];
+                const checkboxIds = ['social', 'professional', 'media', 'engines', 'specialized', 'dorking', 'coding', 'forums', 'visual', 'gaming'];
+                checkboxIds.forEach(id => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox && checkbox.checked) {
+                        checkedCategories.push(getCategoryTitle(id));
+                    }
+                });
+
+                addDiscoveryStep({
+                    title: 'Initial Target Identified',
+                    description: `Started intelligence gathering on target identifier`,
+                    data: username,
+                    connections: ['Search initiated', 'Target locked']
+                });
+
+                addDiscoveryStep({
+                    title: 'Search Categories Selected',
+                    description: `Deployed ${checkedCategories.length} search category modules`,
+                    data: `Categories: ${checkedCategories.join(', ')}`,
+                    connections: checkedCategories
+                });
+
+                addDiscoveryStep({
+                    title: 'Data Collection Phase',
+                    description: `Executing Google Dorking and OSINT queries across multiple platforms`,
+                    data: `Generating automated search links`,
+                    connections: ['Google Dorking', 'OSINT Framework', 'Multi-Platform Search']
+                });
+
+                addDiscoveryStep({
+                    title: 'Results Generated',
+                    description: `Search links created for manual investigation and data point discovery`,
+                    data: `Ready for analyst review`,
+                    connections: ['Trace complete', 'Awaiting manual analysis']
+                });
+            }
+
+            originalGenerateSearches();
         }
 
         // Allow Enter key to search
