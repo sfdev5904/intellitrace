@@ -746,10 +746,41 @@
                 return;
             }
 
+            // Track the initial search for POD
+            const checkedCategories = [];
+            const checkboxIds = ['social', 'professional', 'media', 'engines', 'specialized', 'dorking', 'coding', 'forums', 'visual', 'gaming'];
+            checkboxIds.forEach(id => {
+                const checkbox = document.getElementById(id);
+                if (checkbox && checkbox.checked) {
+                    checkedCategories.push(getCategoryTitle(id));
+                }
+            });
+
+            addDiscoveryStep({
+                title: 'Initial Target Identified',
+                description: `Started intelligence gathering on target identifier`,
+                data: username,
+                connections: ['Search initiated', 'Target locked']
+            });
+
+            addDiscoveryStep({
+                title: 'Search Categories Selected',
+                description: `Deployed ${checkedCategories.length} search category modules`,
+                data: `Categories: ${checkedCategories.join(', ')}`,
+                connections: checkedCategories
+            });
+
+            addDiscoveryStep({
+                title: 'Data Collection Phase',
+                description: `Executing Google Dorking and OSINT queries across multiple platforms`,
+                data: `Generating automated search links`,
+                connections: ['Google Dorking', 'OSINT Framework', 'Multi-Platform Search']
+            });
+
             const resultsDiv = document.getElementById('results');
             const resultsContent = document.getElementById('resultsContent');
             const statsDiv = document.getElementById('stats');
-            
+
             resultsDiv.classList.add('active');
             resultsContent.innerHTML = '';
             statsDiv.innerHTML = '';
@@ -777,7 +808,7 @@
                         if (searchCategories[category]) {
                             const categoryDiv = document.createElement('div');
                             categoryDiv.className = 'category';
-                            
+
                             const categoryTitle = document.createElement('h3');
                             categoryTitle.textContent = getCategoryTitle(category);
                             categoryDiv.appendChild(categoryTitle);
@@ -845,6 +876,13 @@
                     <p>Target Query</p>
                 </div>
             `;
+
+            addDiscoveryStep({
+                title: 'Results Generated',
+                description: `Search links created for manual investigation and data point discovery`,
+                data: `Ready for analyst review`,
+                connections: ['Trace complete', 'Awaiting manual analysis']
+            });
 
             // Scroll to results
             resultsDiv.scrollIntoView({ behavior: 'smooth' });
@@ -936,54 +974,6 @@
             });
 
             podTimeline.innerHTML = html;
-        }
-
-        // Enhanced generateSearches to track POD
-        const originalGenerateSearches = generateSearches;
-        function generateSearches() {
-            const username = document.getElementById('username').value.trim();
-
-            if (username) {
-                // Track the initial search
-                const checkedCategories = [];
-                const checkboxIds = ['social', 'professional', 'media', 'engines', 'specialized', 'dorking', 'coding', 'forums', 'visual', 'gaming'];
-                checkboxIds.forEach(id => {
-                    const checkbox = document.getElementById(id);
-                    if (checkbox && checkbox.checked) {
-                        checkedCategories.push(getCategoryTitle(id));
-                    }
-                });
-
-                addDiscoveryStep({
-                    title: 'Initial Target Identified',
-                    description: `Started intelligence gathering on target identifier`,
-                    data: username,
-                    connections: ['Search initiated', 'Target locked']
-                });
-
-                addDiscoveryStep({
-                    title: 'Search Categories Selected',
-                    description: `Deployed ${checkedCategories.length} search category modules`,
-                    data: `Categories: ${checkedCategories.join(', ')}`,
-                    connections: checkedCategories
-                });
-
-                addDiscoveryStep({
-                    title: 'Data Collection Phase',
-                    description: `Executing Google Dorking and OSINT queries across multiple platforms`,
-                    data: `Generating automated search links`,
-                    connections: ['Google Dorking', 'OSINT Framework', 'Multi-Platform Search']
-                });
-
-                addDiscoveryStep({
-                    title: 'Results Generated',
-                    description: `Search links created for manual investigation and data point discovery`,
-                    data: `Ready for analyst review`,
-                    connections: ['Trace complete', 'Awaiting manual analysis']
-                });
-            }
-
-            originalGenerateSearches();
         }
 
         // Allow Enter key to search
