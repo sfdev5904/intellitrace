@@ -349,11 +349,25 @@
             margin-bottom: 8px;
         }
 
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+            font-size: 0.9em;
+        }
+
+        .footer span {
+            color: #00D9FF;
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
             }
-            
+
             .search-grid {
                 grid-template-columns: 1fr;
             }
@@ -484,6 +498,10 @@
         <div class="results" id="results">
             <div class="stats" id="stats"></div>
             <div id="resultsContent"></div>
+        </div>
+
+        <div class="footer">
+            made by: <span>Sebastian F.</span>
         </div>
     </div>
 
