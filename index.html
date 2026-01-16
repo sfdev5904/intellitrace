@@ -847,6 +847,17 @@
                                 link.target = '_blank';
                                 link.textContent = 'Trace';
 
+                                // Track POD when link is clicked
+                                link.addEventListener('click', function(e) {
+                                    const categoryName = getCategoryTitle(category);
+                                    addDiscoveryStep({
+                                        title: `${site.name} Investigation Initiated`,
+                                        description: `Operator executed ${site.search ? 'Boolean search query' : 'direct profile lookup'} on ${site.name} platform for target intelligence gathering`,
+                                        data: `Target: ${username} | Platform: ${site.name} | Method: ${site.search ? 'Google Dorking' : 'Direct Access'}`,
+                                        connections: [categoryName, site.name, 'Active Investigation']
+                                    });
+                                });
+
                                 card.appendChild(info);
                                 card.appendChild(link);
                                 searchGrid.appendChild(card);
