@@ -370,6 +370,22 @@
             gap: 15px;
         }
 
+        .certification-badge {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .certification-badge svg {
+            width: 120px;
+            height: auto;
+            filter: drop-shadow(0 4px 10px rgba(0, 217, 255, 0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .certification-badge svg:hover {
+            transform: scale(1.05);
+        }
+
         .hashtag {
             color: #00D9FF;
             font-size: 1.1em;
@@ -539,6 +555,10 @@
                 padding: 10px 16px;
                 font-size: 0.9em;
             }
+
+            .certification-badge svg {
+                width: 100px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -698,6 +718,52 @@
 
         <div class="footer">
             <div class="footer-content">
+                <div class="certification-badge">
+                    <svg viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Shield outline -->
+                        <path d="M150 10 L280 70 L280 180 Q280 250 150 330 Q20 250 20 180 L20 70 Z"
+                              fill="white" stroke="#999999" stroke-width="8"/>
+
+                        <!-- Stars -->
+                        <g fill="#E5C100">
+                            <!-- Left star -->
+                            <path d="M80 60 L84 74 L99 74 L87 83 L91 97 L80 88 L69 97 L73 83 L61 74 L76 74 Z"/>
+                            <!-- Center star (larger) -->
+                            <path d="M150 35 L156 55 L177 55 L160 67 L166 87 L150 75 L134 87 L140 67 L123 55 L144 55 Z"/>
+                            <!-- Right star -->
+                            <path d="M220 60 L224 74 L239 74 L227 83 L231 97 L220 88 L209 97 L213 83 L201 74 L216 74 Z"/>
+                        </g>
+
+                        <!-- OSC Text -->
+                        <g font-family="Arial, sans-serif" font-weight="bold">
+                            <!-- O -->
+                            <text x="65" y="180" font-size="80" fill="#006699">O</text>
+                            <!-- S -->
+                            <text x="125" y="180" font-size="80" fill="#006699">S</text>
+                            <!-- C -->
+                            <text x="185" y="180" font-size="80" fill="#666666">C</text>
+                        </g>
+
+                        <!-- OPEN-SOURCE text -->
+                        <text x="150" y="215" font-family="Arial, sans-serif" font-size="28"
+                              fill="#666666" text-anchor="middle" font-weight="600" letter-spacing="2">
+                            OPEN-SOURCE
+                        </text>
+
+                        <!-- Banner background -->
+                        <path d="M40 240 L260 240 L280 270 L260 300 L40 300 L20 270 Z" fill="#006699"/>
+
+                        <!-- CERTIFIED text -->
+                        <text x="150" y="280" font-family="Arial, sans-serif" font-size="36"
+                              fill="white" text-anchor="middle" font-weight="bold" letter-spacing="4">
+                            CERTIFIED
+                        </text>
+
+                        <!-- Bottom triangles -->
+                        <path d="M80 300 L100 320 L60 320 Z" fill="#666666"/>
+                        <path d="M220 300 L240 320 L200 320 Z" fill="#666666"/>
+                    </svg>
+                </div>
                 <div class="hashtag">#OSINT4GOOD</div>
                 <div>made by: <span>Mr. OSINT Jr.</span></div>
                 <div class="social-links">
