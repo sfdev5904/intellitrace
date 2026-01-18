@@ -404,9 +404,44 @@
                 margin: 0 5px;
             }
         }
+
+        .mascot {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 150px;
+            height: auto;
+            z-index: 100;
+        }
+
+        .mascot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .mascot {
+                width: 100px;
+                top: 15px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mascot {
+                width: 80px;
+                top: 10px;
+                right: 10px;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="mascot">
+        <img src="images/mr-osint-jr.png" alt="Mr. OSINT Jr.">
+    </div>
+
     <div class="nav-bar">
         <a href="index.html" class="nav-btn">← Go Back</a>
     </div>
