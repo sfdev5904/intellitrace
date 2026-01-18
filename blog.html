@@ -109,15 +109,40 @@
         .blog-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            position: relative;
+            overflow: hidden;
             border-bottom: 2px solid rgba(0, 217, 255, 0.3);
         }
 
+        .blog-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
         .blog-image.featured {
-            background: linear-gradient(135deg, #00D9FF 0%, #0099CC 100%);
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, #00D9FF 0%, #0099CC 100%);
+        }
+
+        .blog-image.featured::before {
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
         }
 
         .blog-content {
@@ -416,22 +441,6 @@
                 </div>
             </div>
 
-            <div class="blog-card">
-                <div class="blog-image"></div>
-                <div class="blog-content">
-                    <div class="blog-date">Coming Soon</div>
-                    <h2 class="blog-title">Environmental Investigations: Satellite Analysis for Climate Accountability</h2>
-                    <div class="blog-tags">
-                        <span class="tag">#Environment</span>
-                        <span class="tag">#SatelliteAnalysis</span>
-                        <span class="tag">#Accountability</span>
-                    </div>
-                    <p class="blog-excerpt">
-                        Using freely available satellite imagery to document environmental destruction, illegal deforestation, pollution incidents, and climate change impacts. Learn to analyze multispectral data, detect changes over time, and hold actors accountable through visual evidence.
-                    </p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </div>
         </div>
 
         <div class="coming-soon">
