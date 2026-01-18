@@ -414,6 +414,16 @@
             z-index: 100;
         }
 
+        .mascot a {
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .mascot a:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.6));
+        }
+
         .mascot img {
             width: 100%;
             height: auto;
@@ -439,7 +449,9 @@
 </head>
 <body>
     <div class="mascot">
-        <img src="images/mr-osint-jr.png" alt="Mr. OSINT Jr.">
+        <a href="ctf.html">
+            <img src="images/mr-osint-jr.png" alt="Mr. OSINT Jr.">
+        </a>
     </div>
 
     <div class="nav-bar">
