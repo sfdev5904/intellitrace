@@ -819,7 +819,7 @@
                                 <div class="search-icon">🔍</div>
                                 <div class="search-card-text">
                                     <h4>Google Images</h4>
-                                    <p>Reverse Image Search</p>
+                                    <p>General Search</p>
                                 </div>
                             </div>
                             <span class="search-link">Search</span>
@@ -829,7 +829,7 @@
                                 <div class="search-icon">👁️</div>
                                 <div class="search-card-text">
                                     <h4>TinEye</h4>
-                                    <p>Reverse Image Search</p>
+                                    <p>Exact Matches</p>
                                 </div>
                             </div>
                             <span class="search-link">Search</span>
@@ -838,8 +838,8 @@
                             <div class="search-card-info">
                                 <div class="search-icon">🇷🇺</div>
                                 <div class="search-card-text">
-                                    <h4>Yandex Images</h4>
-                                    <p>Reverse Image Search</p>
+                                    <h4>Yandex</h4>
+                                    <p>Russian Search</p>
                                 </div>
                             </div>
                             <span class="search-link">Search</span>
@@ -848,15 +848,55 @@
                             <div class="search-card-info">
                                 <div class="search-icon">🅱️</div>
                                 <div class="search-card-text">
-                                    <h4>Bing Images</h4>
-                                    <p>Reverse Image Search</p>
+                                    <h4>Bing</h4>
+                                    <p>Microsoft Search</p>
+                                </div>
+                            </div>
+                            <span class="search-link">Search</span>
+                        </div>
+                        <div class="search-card" onclick="searchOnPlatform('baidu')">
+                            <div class="search-card-info">
+                                <div class="search-icon">🇨🇳</div>
+                                <div class="search-card-text">
+                                    <h4>Baidu</h4>
+                                    <p>Chinese Search</p>
+                                </div>
+                            </div>
+                            <span class="search-link">Search</span>
+                        </div>
+                        <div class="search-card" onclick="searchOnPlatform('saucenao')">
+                            <div class="search-card-info">
+                                <div class="search-icon">🍜</div>
+                                <div class="search-card-text">
+                                    <h4>SauceNAO</h4>
+                                    <p>Anime/Manga/Art</p>
+                                </div>
+                            </div>
+                            <span class="search-link">Search</span>
+                        </div>
+                        <div class="search-card" onclick="searchOnPlatform('iqdb')">
+                            <div class="search-card-info">
+                                <div class="search-icon">🎨</div>
+                                <div class="search-card-text">
+                                    <h4>IQDB</h4>
+                                    <p>Anime/Manga</p>
+                                </div>
+                            </div>
+                            <span class="search-link">Search</span>
+                        </div>
+                        <div class="search-card" onclick="searchOnPlatform('ascii2d')">
+                            <div class="search-card-info">
+                                <div class="search-icon">🎭</div>
+                                <div class="search-card-text">
+                                    <h4>ASCII2D</h4>
+                                    <p>Anime/Illustrations</p>
                                 </div>
                             </div>
                             <span class="search-link">Search</span>
                         </div>
                     </div>
                     <p style="color: rgba(255,255,255,0.7); margin-top: 15px; font-size: 0.9em;">
-                        💡 Tip: Some platforms require you to upload the image manually. Click "Search" to open the platform's reverse image search page.
+                        💡 Tip: Click "Search" to automatically upload and search your image on the selected platform. Results will open in a new tab.
                     </p>
                 </div>
             </div>
@@ -1327,34 +1367,237 @@
 
             // Convert canvas to blob for uploading
             canvas.toBlob(function(blob) {
-                const platforms = {
-                    google: 'https://images.google.com/searchbyimage',
-                    tineye: 'https://tineye.com/',
-                    yandex: 'https://yandex.com/images/search?rpt=imageview&url=',
-                    bing: 'https://www.bing.com/images/search?view=detailv2&iss=sbi&form=SBIVSP'
-                };
-
-                // Note: Most reverse image search engines require actual file upload
-                // which can't be automated via URL due to security restrictions
-                // So we'll open the platform and user will need to upload manually
-
-                const url = platforms[platform];
-                if (url) {
-                    window.open(url, '_blank');
-
-                    // Try to download the modified image for user convenience
-                    const link = document.createElement('a');
-                    link.download = 'reverse-search-image.png';
-                    link.href = canvas.toDataURL();
-
-                    // Show helpful message
-                    setTimeout(() => {
-                        if (confirm('Would you like to download the modified image to upload it to the reverse image search platform?')) {
-                            link.click();
-                        }
-                    }, 500);
+                if (platform === 'google') {
+                    searchGoogle(blob);
+                } else if (platform === 'tineye') {
+                    searchTinEye(blob);
+                } else if (platform === 'yandex') {
+                    searchYandex(blob);
+                } else if (platform === 'bing') {
+                    searchBing(blob);
+                } else if (platform === 'baidu') {
+                    searchBaidu(blob);
+                } else if (platform === 'saucenao') {
+                    searchSauceNAO(blob);
+                } else if (platform === 'iqdb') {
+                    searchIQDB(blob);
+                } else if (platform === 'ascii2d') {
+                    searchASCII2D(blob);
                 }
-            });
+            }, 'image/jpeg', 0.95);
+        }
+
+        // Google Images reverse search
+        function searchGoogle(blob) {
+            const formData = new FormData();
+            formData.append('encoded_image', blob, 'image.jpg');
+            formData.append('image_content', '');
+
+            // Create a form and submit it
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://www.google.com/searchbyimage/upload';
+            form.target = '_blank';
+            form.enctype = 'multipart/form-data';
+
+            // Convert blob to file input
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.name = 'encoded_image';
+
+            // Create a DataTransfer object to set the file
+            const dataTransfer = new DataTransfer();
+            const file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+        }
+
+        // TinEye reverse search
+        function searchTinEye(blob) {
+            const formData = new FormData();
+            formData.append('image', blob, 'image.jpg');
+
+            // Create a form and submit it
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://tineye.com/search';
+            form.target = '_blank';
+            form.enctype = 'multipart/form-data';
+
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.name = 'image';
+
+            const dataTransfer = new DataTransfer();
+            const file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+        }
+
+        // Yandex Images reverse search
+        function searchYandex(blob) {
+            // Yandex uses a different approach - we'll use base64
+            const reader = new FileReader();
+            reader.onloadend = function() {
+                const base64data = reader.result;
+
+                // Create form for Yandex
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = 'https://yandex.com/images/search';
+                form.target = '_blank';
+                form.enctype = 'multipart/form-data';
+
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.name = 'upfile';
+
+                const dataTransfer = new DataTransfer();
+                const file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
+                dataTransfer.items.add(file);
+                input.files = dataTransfer.files;
+
+                const rptInput = document.createElement('input');
+                rptInput.type = 'hidden';
+                rptInput.name = 'rpt';
+                rptInput.value = 'imageview';
+
+                form.appendChild(input);
+                form.appendChild(rptInput);
+                document.body.appendChild(form);
+                form.submit();
+                document.body.removeChild(form);
+            };
+            reader.readAsDataURL(blob);
+        }
+
+        // Bing Images reverse search
+        function searchBing(blob) {
+            const formData = new FormData();
+            formData.append('imageBin', blob, 'image.jpg');
+
+            // Create a form and submit it
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://www.bing.com/images/search?view=detailv2&iss=sbi&form=SBIHMP';
+            form.target = '_blank';
+            form.enctype = 'multipart/form-data';
+
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.name = 'imageBin';
+
+            const dataTransfer = new DataTransfer();
+            const file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+        }
+
+        // Baidu Images reverse search
+        function searchBaidu(blob) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://image.baidu.com/pictureup/uploadshitu';
+            form.target = '_blank';
+            form.enctype = 'multipart/form-data';
+
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.name = 'image';
+
+            const dataTransfer = new DataTransfer();
+            const file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+        }
+
+        // SauceNAO reverse search (anime/manga/art)
+        function searchSauceNAO(blob) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://saucenao.com/search.php';
+            form.target = '_blank';
+            form.enctype = 'multipart/form-data';
+
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.name = 'file';
+
+            const dataTransfer = new DataTransfer();
+            const file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+        }
+
+        // IQDB reverse search (anime/manga)
+        function searchIQDB(blob) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://iqdb.org/';
+            form.target = '_blank';
+            form.enctype = 'multipart/form-data';
+
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.name = 'file';
+
+            const dataTransfer = new DataTransfer();
+            const file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+        }
+
+        // ASCII2D reverse search (anime/illustrations)
+        function searchASCII2D(blob) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://ascii2d.net/search/file';
+            form.target = '_blank';
+            form.enctype = 'multipart/form-data';
+
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.name = 'file';
+
+            const dataTransfer = new DataTransfer();
+            const file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
         }
     </script>
 </body>
