@@ -16,16 +16,16 @@
         }
 
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: #1a1a1a;
-            --accent: #00ff88;
-            --accent-dim: #00cc6a;
-            --accent-glow: rgba(0, 255, 136, 0.3);
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #0d0d0d;
+            --accent: #00D9FF;
+            --accent-dim: #0099CC;
+            --accent-glow: rgba(0, 217, 255, 0.3);
             --text-primary: #ffffff;
             --text-secondary: #888888;
             --text-muted: #555555;
-            --border: #2a2a2a;
+            --border: rgba(0, 217, 255, 0.2);
             --danger: #ff4444;
             --warning: #ffaa00;
         }
@@ -45,9 +45,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+            background-image:
+                linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             pointer-events: none;
             z-index: 0;
@@ -59,8 +59,8 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at 30% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 40%),
-                        radial-gradient(circle at 70% 80%, rgba(0, 255, 136, 0.05) 0%, transparent 30%);
+            background: radial-gradient(circle at 30% 20%, rgba(0, 217, 255, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 217, 255, 0.05) 0%, transparent 30%);
             pointer-events: none;
             z-index: 0;
             animation: float 20s ease-in-out infinite;
@@ -586,21 +586,21 @@
             <span class="logo-text">Mr.<span>OSINT</span>Jr.</span>
         </a>
         <nav>
-            <a href="index.html">← Back to Home</a>
-            <a href="#challenges">Upcoming</a>
-            <a href="#about">About</a>
+            <a href="index.html">← HQ</a>
+            <a href="#challenges">Operations</a>
+            <a href="#about">Intel</a>
         </nav>
         <img src="images/mr-osint-jr.png" alt="Mr. OSINT Jr. Mascot" class="mascot">
     </header>
 
     <main>
         <section class="hero">
-            <div class="terminal-badge">🚀 COMING SOON</div>
-            <h1>Master the Art of Open Source Intelligence</h1>
-            <p>Get ready! Our OSINT CTF platform is launching soon. Sharpen your investigative skills through real-world challenges. From beginner recon to advanced digital forensics.</p>
+            <div class="terminal-badge">[ CLASSIFIED - LEVEL 5 CLEARANCE ]</div>
+            <h1>The Hunt Begins Soon</h1>
+            <p>An intelligence gathering operation unlike any other. Track digital ghosts. Decode hidden patterns. Uncover what others missed. The field awaits those who can see beyond the surface.</p>
             <div class="cta-buttons">
-                <a href="#challenges" class="btn btn-primary">View Upcoming Challenges →</a>
-                <a href="#about" class="btn btn-secondary">Learn More</a>
+                <a href="#challenges" class="btn btn-primary">View Classified Briefings →</a>
+                <a href="#about" class="btn btn-secondary">Access Intel</a>
             </div>
 
             <div class="terminal">
@@ -611,12 +611,12 @@
                 </div>
                 <div class="terminal-body">
                     <div class="terminal-line">
-                        <span class="prompt">$</span> <span class="command">./osint_hunt --target "hidden_flag"</span>
+                        <span class="prompt">root@shadow:~#</span> <span class="command">./initiate_protocol --depth=maximum</span>
                     </div>
-                    <div class="terminal-output">[*] Scanning social media footprints...</div>
-                    <div class="terminal-output">[*] Analyzing metadata...</div>
-                    <div class="terminal-output">[*] Cross-referencing public records...</div>
-                    <div class="terminal-output">[+] Flag found: MROSINT{y0u_f0und_m3}</div>
+                    <div class="terminal-output">[•] Deploying reconnaissance drones...</div>
+                    <div class="terminal-output">[•] Decrypting archived transmissions...</div>
+                    <div class="terminal-output">[•] Triangulating digital signatures...</div>
+                    <div class="terminal-output">[✓] ACCESS GRANTED: MROSINT{th3_tru7h_1s_0u7_th3r3}</div>
                 </div>
             </div>
         </section>
@@ -624,92 +624,92 @@
         <section class="stats">
             <div class="stat">
                 <div class="stat-value">25+</div>
-                <div class="stat-label">Challenges Planned</div>
+                <div class="stat-label">Missions Classified</div>
             </div>
             <div class="stat">
-                <div class="stat-value">🎯</div>
-                <div class="stat-label">Launching Soon</div>
+                <div class="stat-value">[ • ]</div>
+                <div class="stat-label">Status: Pending</div>
             </div>
             <div class="stat">
                 <div class="stat-value">∞</div>
-                <div class="stat-label">Skills to Master</div>
+                <div class="stat-label">Layers to Penetrate</div>
             </div>
             <div class="stat">
-                <div class="stat-value">💡</div>
-                <div class="stat-label">Stay Tuned</div>
+                <div class="stat-value">[ ✓ ]</div>
+                <div class="stat-label">Preparation Phase</div>
             </div>
         </section>
 
         <section class="challenges" id="challenges">
             <div class="section-header">
-                <h2>Upcoming Challenges</h2>
-                <p>Get a sneak peek at what's coming to the platform</p>
+                <h2>Classified Operations</h2>
+                <p>Preview of field missions awaiting deployment</p>
             </div>
             <div class="challenge-grid">
                 <div class="challenge-card">
                     <div class="challenge-header">
-                        <h3 class="challenge-title">Ghost Profile</h3>
-                        <span class="difficulty easy">Easy</span>
+                        <h3 class="challenge-title">Operation: Phantom Trace</h3>
+                        <span class="difficulty easy">LEVEL 1</span>
                     </div>
-                    <p class="challenge-desc">Track down a user who vanished from social media. Use cached data and archived pages to find their hidden identity.</p>
+                    <p class="challenge-desc">Target disappeared. No trail. No witnesses. Only ghosts in the machine. Resurrect what was erased.</p>
                     <div class="challenge-meta">
                         <span class="points">100 pts</span>
-                        <span class="solves">247 solves</span>
+                        <span class="solves">Classification: Entry</span>
                     </div>
                 </div>
                 <div class="challenge-card">
                     <div class="challenge-header">
-                        <h3 class="challenge-title">Geolocation Hunt</h3>
-                        <span class="difficulty easy">Easy</span>
+                        <h3 class="challenge-title">Operation: Shadow Coordinates</h3>
+                        <span class="difficulty easy">LEVEL 1</span>
                     </div>
-                    <p class="challenge-desc">A photo was posted without location data. Use visual clues to pinpoint exactly where this image was taken.</p>
+                    <p class="challenge-desc">Single frame. Zero metadata. Infinite possibilities. Decode the environment. Find the exact point where shadows meet reality.</p>
                     <div class="challenge-meta">
                         <span class="points">150 pts</span>
-                        <span class="solves">189 solves</span>
+                        <span class="solves">Classification: Entry</span>
                     </div>
                 </div>
                 <div class="challenge-card">
                     <div class="challenge-header">
-                        <h3 class="challenge-title">Digital Footprint</h3>
-                        <span class="difficulty medium">Medium</span>
+                        <h3 class="challenge-title">Operation: Identity Fracture</h3>
+                        <span class="difficulty medium">LEVEL 2</span>
                     </div>
-                    <p class="challenge-desc">Connect the dots between multiple online personas. Same person, different masks—can you prove it?</p>
+                    <p class="challenge-desc">Multiple masks. One entity. Digital schizophrenia or calculated deception? Connect fragments across the void.</p>
                     <div class="challenge-meta">
                         <span class="points">300 pts</span>
-                        <span class="solves">92 solves</span>
+                        <span class="solves">Classification: Intermediate</span>
                     </div>
                 </div>
                 <div class="challenge-card">
                     <div class="challenge-header">
-                        <h3 class="challenge-title">Corporate Recon</h3>
-                        <span class="difficulty medium">Medium</span>
+                        <h3 class="challenge-title">Operation: Network Infiltration</h3>
+                        <span class="difficulty medium">LEVEL 2</span>
                     </div>
-                    <p class="challenge-desc">Map out an organization's digital infrastructure using only publicly available information.</p>
+                    <p class="challenge-desc">Map the invisible. Chart the forgotten. Every corporation leaves breadcrumbs. Follow them into the infrastructure they tried to hide.</p>
                     <div class="challenge-meta">
                         <span class="points">350 pts</span>
-                        <span class="solves">64 solves</span>
+                        <span class="solves">Classification: Intermediate</span>
                     </div>
                 </div>
                 <div class="challenge-card">
                     <div class="challenge-header">
-                        <h3 class="challenge-title">Deep Web Trail</h3>
-                        <span class="difficulty hard">Hard</span>
+                        <h3 class="challenge-title">Operation: Abyss Protocol</h3>
+                        <span class="difficulty hard">LEVEL 3</span>
                     </div>
-                    <p class="challenge-desc">Follow a complex trail of breadcrumbs across forums, paste sites, and archived data to uncover the truth.</p>
+                    <p class="challenge-desc">Descent required. Trail goes deep. Forums whisper. Pastes decay. Archives remember. Chase ghosts through digital underground.</p>
                     <div class="challenge-meta">
                         <span class="points">500 pts</span>
-                        <span class="solves">23 solves</span>
+                        <span class="solves">Classification: Advanced</span>
                     </div>
                 </div>
                 <div class="challenge-card">
                     <div class="challenge-header">
-                        <h3 class="challenge-title">Metadata Mastery</h3>
-                        <span class="difficulty hard">Hard</span>
+                        <h3 class="challenge-title">Operation: Temporal Reconstruction</h3>
+                        <span class="difficulty hard">LEVEL 3</span>
                     </div>
-                    <p class="challenge-desc">Extract and analyze hidden metadata from files to piece together a complete timeline of events.</p>
+                    <p class="challenge-desc">Files lie. Metadata tells truth. Extract. Analyze. Reconstruct. Build timeline from invisible ink. See what they meant to hide.</p>
                     <div class="challenge-meta">
                         <span class="points">600 pts</span>
-                        <span class="solves">15 solves</span>
+                        <span class="solves">Classification: Advanced</span>
                     </div>
                 </div>
             </div>
@@ -718,38 +718,38 @@
         <section class="leaderboard" id="about">
             <div class="leaderboard-container">
                 <div class="section-header">
-                    <h2>Learn More About OSINT CTF</h2>
-                    <p>Master open source intelligence through hands-on challenges</p>
+                    <h2>Intelligence Briefing</h2>
+                    <p>Classified intel for authorized personnel</p>
                 </div>
 
                 <div style="max-width: 800px; margin: 2rem auto; text-align: left;">
                     <div style="margin-bottom: 3rem;">
-                        <h3 style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; margin-bottom: 1rem;">🎯 What is OSINT?</h3>
+                        <h3 style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; margin-bottom: 1rem;">[ PROTOCOL: OSINT ]</h3>
                         <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1rem;">
-                            Open Source Intelligence (OSINT) is the practice of collecting and analyzing publicly available information to solve real-world problems. From tracking down digital footprints to verifying information, OSINT skills are essential for cybersecurity professionals, investigators, and researchers.
+                            Open Source Intelligence is the art of extracting signal from noise. What exists in plain sight holds the deepest secrets. Public data becomes private knowledge in the hands of those who know where to look. This is reconnaissance at the highest level.
                         </p>
                     </div>
 
                     <div style="margin-bottom: 3rem;">
-                        <h3 style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; margin-bottom: 1rem;">🚀 What You'll Learn</h3>
+                        <h3 style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; margin-bottom: 1rem;">[ CAPABILITIES ACQUIRED ]</h3>
                         <ul style="color: var(--text-secondary); line-height: 2; font-size: 1rem; list-style: none; padding-left: 0;">
-                            <li style="margin-bottom: 0.75rem;">✓ <strong style="color: var(--text-primary);">Social Media Investigation</strong> - Track down profiles and connections</li>
-                            <li style="margin-bottom: 0.75rem;">✓ <strong style="color: var(--text-primary);">Geolocation Techniques</strong> - Pinpoint locations from visual clues</li>
-                            <li style="margin-bottom: 0.75rem;">✓ <strong style="color: var(--text-primary);">Metadata Analysis</strong> - Extract hidden information from files</li>
-                            <li style="margin-bottom: 0.75rem;">✓ <strong style="color: var(--text-primary);">Digital Forensics</strong> - Piece together digital trails</li>
-                            <li style="margin-bottom: 0.75rem;">✓ <strong style="color: var(--text-primary);">Corporate Reconnaissance</strong> - Map organizational infrastructure</li>
+                            <li style="margin-bottom: 0.75rem;">→ <strong style="color: var(--text-primary);">Digital Ghost Tracking</strong> — Hunt targets across fragmented networks</li>
+                            <li style="margin-bottom: 0.75rem;">→ <strong style="color: var(--text-primary);">Environmental Analysis</strong> — Extract coordinates from visual artifacts</li>
+                            <li style="margin-bottom: 0.75rem;">→ <strong style="color: var(--text-primary);">Shadow Data Extraction</strong> — Mine invisible metadata streams</li>
+                            <li style="margin-bottom: 0.75rem;">→ <strong style="color: var(--text-primary);">Pattern Recognition</strong> — Connect disparate signals into coherent intel</li>
+                            <li style="margin-bottom: 0.75rem;">→ <strong style="color: var(--text-primary);">Infrastructure Mapping</strong> — Chart what they thought was hidden</li>
                         </ul>
                     </div>
 
                     <div style="margin-bottom: 3rem;">
-                        <h3 style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; margin-bottom: 1rem;">📅 Coming Soon</h3>
+                        <h3 style="color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; margin-bottom: 1rem;">[ STATUS: INITIALIZATION ]</h3>
                         <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1rem;">
-                            We're putting the final touches on our platform. Stay tuned for the official launch! Follow us on social media for updates and early access opportunities.
+                            Final preparations underway. Systems calibrating. The operation goes live soon. Those ready to see beyond the surface will be notified. Stay alert.
                         </p>
                     </div>
 
                     <div style="text-align: center; margin-top: 3rem;">
-                        <a href="index.html" class="btn btn-primary" style="display: inline-block;">← Back to Home</a>
+                        <a href="index.html" class="btn btn-primary" style="display: inline-block;">← Return to Base</a>
                     </div>
                 </div>
             </div>
@@ -758,12 +758,12 @@
 
     <footer>
         <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="blog.html">Blog</a>
-            <a href="#challenges">Upcoming Challenges</a>
-            <a href="#about">Learn More</a>
+            <a href="index.html">HQ</a>
+            <a href="blog.html">Intel Feed</a>
+            <a href="#challenges">Operations</a>
+            <a href="#about">Briefing</a>
         </div>
-        <p class="copyright">© 2025 <a href="index.html">Mr. OSINT Jr.</a> — CTF Platform Coming Soon! 🚀</p>
+        <p class="copyright">© 2025 <a href="index.html">Mr. OSINT Jr.</a> — [ OPERATION STATUS: DEPLOYMENT PENDING ]</p>
     </footer>
 
     <script>
