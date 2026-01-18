@@ -109,11 +109,15 @@
         .blog-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, #00D9FF 0%, #0099CC 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4em;
+            border-bottom: 2px solid rgba(0, 217, 255, 0.3);
+        }
+
+        .blog-image.featured {
+            background: linear-gradient(135deg, #00D9FF 0%, #0099CC 100%);
         }
 
         .blog-content {
@@ -281,7 +285,7 @@
 </head>
 <body>
     <div class="nav-bar">
-        <a href="index.html" class="nav-btn">← Back to IntelliTrace</a>
+        <a href="index.html" class="nav-btn">← Go Back</a>
     </div>
 
     <div class="container">
@@ -291,105 +295,139 @@
             <p class="subtitle">Insights, techniques, and stories from the field</p>
         </div>
 
-        <!-- Sample Blog Posts (These will be replaced with actual content later) -->
+        <!-- Investigative Articles -->
         <div class="blog-grid">
             <div class="blog-card">
-                <div class="blog-image">🔍</div>
+                <div class="blog-image featured"></div>
                 <div class="blog-content">
                     <div class="blog-date">Coming Soon</div>
-                    <h2 class="blog-title">Getting Started with Google Dorking</h2>
+                    <h2 class="blog-title">Geolocation Techniques: From Satellite Imagery to Street-Level Analysis</h2>
                     <div class="blog-tags">
-                        <span class="tag">#OSINT</span>
-                        <span class="tag">#Tutorial</span>
-                        <span class="tag">#GoogleDorking</span>
-                    </div>
-                    <p class="blog-excerpt">
-                        Learn the fundamentals of Google Dorking and how to use advanced search operators to uncover hidden information across the web. Perfect for beginners starting their OSINT journey.
-                    </p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </div>
-
-            <div class="blog-card">
-                <div class="blog-image">🌐</div>
-                <div class="blog-content">
-                    <div class="blog-date">Coming Soon</div>
-                    <h2 class="blog-title">Social Media OSINT Techniques</h2>
-                    <div class="blog-tags">
-                        <span class="tag">#OSINT</span>
-                        <span class="tag">#SocialMedia</span>
+                        <span class="tag">#Geolocation</span>
+                        <span class="tag">#Methodology</span>
                         <span class="tag">#Investigation</span>
                     </div>
                     <p class="blog-excerpt">
-                        Discover effective methods for gathering intelligence from social media platforms while maintaining ethical standards and respecting privacy boundaries.
+                        A comprehensive guide to geolocating images and videos using satellite imagery, architectural analysis, shadow mapping, and environmental markers. Learn the methodologies used by professional investigators to verify locations in conflict zones and crisis situations.
                     </p>
                     <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
 
             <div class="blog-card">
-                <div class="blog-image">🛡️</div>
+                <div class="blog-image"></div>
                 <div class="blog-content">
                     <div class="blog-date">Coming Soon</div>
-                    <h2 class="blog-title">OSINT Ethics & Best Practices</h2>
+                    <h2 class="blog-title">Verifying User-Generated Content in Crisis Situations</h2>
                     <div class="blog-tags">
-                        <span class="tag">#Ethics</span>
-                        <span class="tag">#BestPractices</span>
-                        <span class="tag">#OSINT4GOOD</span>
+                        <span class="tag">#Verification</span>
+                        <span class="tag">#DigitalForensics</span>
+                        <span class="tag">#MediaLiteracy</span>
                     </div>
                     <p class="blog-excerpt">
-                        Understanding the ethical considerations and legal boundaries of open source intelligence gathering. Learn how to conduct OSINT responsibly and for good.
+                        When conflicts erupt or disasters strike, social media floods with images and videos. This investigation explores techniques for authenticating user-generated content, reverse image searching, metadata analysis, and cross-referencing multiple sources to establish ground truth.
                     </p>
                     <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
 
             <div class="blog-card">
-                <div class="blog-image">📊</div>
+                <div class="blog-image"></div>
                 <div class="blog-content">
                     <div class="blog-date">Coming Soon</div>
-                    <h2 class="blog-title">Advanced Digital Footprint Analysis</h2>
+                    <h2 class="blog-title">Tracking Disinformation Networks: A Case Study Approach</h2>
                     <div class="blog-tags">
+                        <span class="tag">#Disinformation</span>
+                        <span class="tag">#NetworkAnalysis</span>
+                        <span class="tag">#CaseStudy</span>
+                    </div>
+                    <p class="blog-excerpt">
+                        An in-depth examination of coordinated disinformation campaigns. Learn to identify bot networks, analyze posting patterns, trace narrative origins, and map information flows across platforms using network analysis and temporal correlation techniques.
+                    </p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-image"></div>
+                <div class="blog-content">
+                    <div class="blog-date">Coming Soon</div>
+                    <h2 class="blog-title">Mapping Conflict Zones Through Open Source Data</h2>
+                    <div class="blog-tags">
+                        <span class="tag">#ConflictMonitoring</span>
+                        <span class="tag">#DataVisualization</span>
+                        <span class="tag">#HumanRights</span>
+                    </div>
+                    <p class="blog-excerpt">
+                        Investigating armed conflicts using publicly available data sources. This piece demonstrates how to aggregate social media reports, satellite imagery, and eyewitness accounts to create comprehensive maps of conflict events, document human rights violations, and establish timelines.
+                    </p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-image"></div>
+                <div class="blog-content">
+                    <div class="blog-date">Coming Soon</div>
+                    <h2 class="blog-title">Advanced Chronolocation: Time Verification Methods</h2>
+                    <div class="blog-tags">
+                        <span class="tag">#Chronolocation</span>
+                        <span class="tag">#TimeVerification</span>
                         <span class="tag">#Advanced</span>
-                        <span class="tag">#Analysis</span>
-                        <span class="tag">#Tools</span>
                     </div>
                     <p class="blog-excerpt">
-                        Deep dive into advanced techniques for analyzing digital footprints, connecting data points, and building comprehensive intelligence profiles from publicly available information.
+                        Master the art of determining when a photograph or video was captured. Using sun angle calculations, weather data archives, astronomical positioning, and digital forensics to establish precise timestamps for visual evidence in investigations.
                     </p>
                     <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
 
             <div class="blog-card">
-                <div class="blog-image">🔐</div>
+                <div class="blog-image"></div>
                 <div class="blog-content">
                     <div class="blog-date">Coming Soon</div>
-                    <h2 class="blog-title">Protecting Your Digital Privacy</h2>
+                    <h2 class="blog-title">Corporate Investigations: Following the Money Through Public Records</h2>
                     <div class="blog-tags">
-                        <span class="tag">#Privacy</span>
-                        <span class="tag">#Security</span>
-                        <span class="tag">#Tips</span>
+                        <span class="tag">#CorporateInvestigation</span>
+                        <span class="tag">#PublicRecords</span>
+                        <span class="tag">#FinancialTracking</span>
                     </div>
                     <p class="blog-excerpt">
-                        Learn how to protect yourself from OSINT techniques. Understand what information you're exposing online and how to minimize your digital footprint.
+                        Uncovering corporate connections, shell companies, and financial flows using public registries, leaked databases, and regulatory filings. A practical guide to investigating corporate structures, beneficial ownership, and cross-border financial networks.
                     </p>
                     <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
 
             <div class="blog-card">
-                <div class="blog-image">🎯</div>
+                <div class="blog-image"></div>
                 <div class="blog-content">
                     <div class="blog-date">Coming Soon</div>
-                    <h2 class="blog-title">OSINT Tools & Resources 2026</h2>
+                    <h2 class="blog-title">The OSINT Investigation Toolkit: Professional Methodologies</h2>
                     <div class="blog-tags">
                         <span class="tag">#Tools</span>
-                        <span class="tag">#Resources</span>
-                        <span class="tag">#2026</span>
+                        <span class="tag">#Methodology</span>
+                        <span class="tag">#BestPractices</span>
                     </div>
                     <p class="blog-excerpt">
-                        A comprehensive guide to the best OSINT tools and resources available in 2026. From free online tools to professional-grade platforms.
+                        A deep dive into the professional OSINT investigator's workflow. From hypothesis formation to evidence collection, verification protocols, archival strategies, and reporting standards. Learn the methodologies that ensure investigative rigor and defensible findings.
+                    </p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-image"></div>
+                <div class="blog-content">
+                    <div class="blog-date">Coming Soon</div>
+                    <h2 class="blog-title">Environmental Investigations: Satellite Analysis for Climate Accountability</h2>
+                    <div class="blog-tags">
+                        <span class="tag">#Environment</span>
+                        <span class="tag">#SatelliteAnalysis</span>
+                        <span class="tag">#Accountability</span>
+                    </div>
+                    <p class="blog-excerpt">
+                        Using freely available satellite imagery to document environmental destruction, illegal deforestation, pollution incidents, and climate change impacts. Learn to analyze multispectral data, detect changes over time, and hold actors accountable through visual evidence.
                     </p>
                     <a href="#" class="read-more">Read More →</a>
                 </div>
