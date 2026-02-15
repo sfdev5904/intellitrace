@@ -203,6 +203,44 @@
             box-shadow: 0 4px 12px rgba(0, 217, 255, 0.5);
         }
 
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #00D9FF 0%, #0099CC 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 217, 255, 0.3);
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #00E5FF 0%, #00B8E6 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.5);
+        }
+
+        .blog-card.published {
+            border-color: #00D9FF;
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.25);
+        }
+
+        .new-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #00D9FF 0%, #0099CC 100%);
+            color: #ffffff;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
         .coming-soon {
             text-align: center;
             padding: 80px 20px;
@@ -467,6 +505,31 @@
 
         <!-- Investigative Articles -->
         <div class="blog-grid">
+            <div class="blog-card published">
+                <div class="blog-image featured"></div>
+                <div class="blog-content">
+                    <div class="blog-date">February 15, 2026 <span class="new-badge">NEW</span></div>
+                    <h2 class="blog-title">The Digital Hunting Ground</h2>
+                    <div class="blog-tags">
+                        <span class="tag">#ChildSafety</span>
+                        <span class="tag">#OnlinePredators</span>
+                        <span class="tag">#Sextortion</span>
+                        <span class="tag">#OSINT4GOOD</span>
+                    </div>
+                    <p class="blog-excerpt">
+                        An informative report on online predatory tactics, grooming methodologies, and the exploitation of children through social media and gaming platforms. Prepared by Sebastian T. using open-source intelligence from law enforcement agencies, child advocacy organizations, and academic research to educate parents, educators, and community stakeholders about the evolving threat landscape targeting children online.
+                    </p>
+                    <a href="The Digital Hunting Ground.pdf" download class="download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 15V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Download PDF
+                    </a>
+                </div>
+            </div>
+
             <div class="blog-card">
                 <div class="blog-image featured"></div>
                 <div class="blog-content">
